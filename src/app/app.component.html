@@ -91,7 +91,7 @@
                 </div>
                 <div class="products__item-weight">{{ product.weight }}</div>
               </div>
-              <button class="button violet-button" (click)="scrollTo(order)">
+              <button class="button violet-button" (click)="scrollTo(order, product)">
                 Заказать
               </button>
             </div>
@@ -154,6 +154,7 @@
                   form.get('product')?.invalid &&
                   (form.get('product')?.dirty || form.get('product')?.touched)
               }"
+              readonly
             />
             <input
               type="text"
