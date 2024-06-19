@@ -51,14 +51,21 @@ body {
   color: white;
 }
 
-.button:hover {
+.button:disabled{
+  cursor:not-allowed;
+  opacity: 0.6;
+  color: grey;
+  background-color: #343434;
+}
+
+.button:hover:not(:disabled) {
   background-color: #5243f4;
   color: white;
   border: 1px solid white;
   transition: all 0.7s;
 }
 
-.violet-button:hover {
+.violet-button:hover:not(:disabled) {
   background-color: white;
   color: #5243f4;
   border: 1px solid #5243f4;

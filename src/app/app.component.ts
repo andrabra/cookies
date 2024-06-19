@@ -48,4 +48,12 @@ export class AppComponent {
       product.price = +(product.basePrice * coefficient).toFixed(2);
     });
   }
+
+  confirmOrder(){
+    if (this.form.valid) {
+      this.form.reset();
+      alert('Заказ оформлен!');
+    }
+  }
+
 }

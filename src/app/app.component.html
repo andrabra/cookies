@@ -1,5 +1,12 @@
 <main class="main">
-  <div class="currency" title="Изменить валюту" id="change-currency" (click)="changeCurrency()">{{currency}}</div>
+  <div
+    class="currency"
+    title="Изменить валюту"
+    id="change-currency"
+    (click)="changeCurrency()"
+  >
+    {{ currency }}
+  </div>
   <header class="header">
     <div class="container">
       <div class="logo">
@@ -37,7 +44,13 @@
           подарить вам истинное кулинарное наслаждение.
         </p>
         <div class="main__action">
-          <button class="button" id="main__action-button" (click)="scrollTo(products)">Заказать</button>
+          <button
+            class="button"
+            id="main__action-button"
+            (click)="scrollTo(products)"
+          >
+            Заказать
+          </button>
         </div>
       </div>
       <img
@@ -63,24 +76,27 @@
         <div class="products__item" *ngFor="let product of productsData">
           <div class="product__item-image">
             <img
-              src="../assets/images/products/{{product.image}}"
+              src="../assets/images/products/{{ product.image }}"
               alt="Cookie product"
               loading="lazy"
             />
           </div>
           <div class="product__item-details">
-            <div class="product__item-title">{{product.title}}</div>
-            <div class="product__item-text">{{product.text}}</div>
+            <div class="product__item-title">{{ product.title }}</div>
+            <div class="product__item-text">{{ product.text }}</div>
             <div class="product__item-extra">
               <div class="product__item-info">
-                <div class="product__item-price">{{product.price}} {{currency}}</div>
-                <div class="products__item-weight">{{product.weight}}</div>
+                <div class="product__item-price">
+                  {{ product.price }} {{ currency }}
+                </div>
+                <div class="products__item-weight">{{ product.weight }}</div>
               </div>
-              <button class="button violet-button" (click)="scrollTo(order)">Заказать</button>
+              <button class="button violet-button" (click)="scrollTo(order)">
+                Заказать
+              </button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
@@ -127,11 +143,46 @@
             Откройте для себя волшебство вкуса с нашим премиальным печеньем!
             Закажите прямо сейчас и окунитесь в мир сладких наслаждений.
           </p>
-          <form class="order__block-form-inputs">
-            <input type="text" placeholder="Выберите печенье" id="product" />
-            <input type="text" placeholder="Ваше имя" id="name" />
-            <input type="text" placeholder="Ваш телефон" id="phone" />
-            <button class="button violet-button" id="order-action">
+          <form class="order__block-form-inputs" [formGroup]="form">
+            <input
+              type="text"
+              placeholder="Выберите печенье"
+              id="product"
+              formControlName="product"
+              [class]="{
+                error:
+                  form.get('product')?.invalid &&
+                  (form.get('product')?.dirty || form.get('product')?.touched)
+              }"
+            />
+            <input
+              type="text"
+              placeholder="Ваше имя"
+              id="name"
+              formControlName="name"
+              [class]="{
+                error:
+                  form.get('name')?.invalid &&
+                  (form.get('name')?.dirty || form.get('name')?.touched)
+              }"
+            />
+            <input
+              type="text"
+              placeholder="Ваш телефон"
+              id="phone"
+              formControlName="phone"
+              [class]="{
+                error:
+                  form.get('phone')?.invalid &&
+                  (form.get('phone')?.dirty || form.get('phone')?.touched)
+              }"
+            />
+            <button
+              class="button violet-button"
+              id="order-action"
+              (click)="confirmOrder()"
+              [disabled]="form.invalid"
+            >
               Оформить заказ
             </button>
           </form>
