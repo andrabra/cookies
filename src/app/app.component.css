@@ -1,0 +1,319 @@
+.main {
+  overflow-x: hidden;
+}
+
+.currency {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  border: 1px solid white;
+  padding: 5px 10px;
+  height: 50px;
+  min-width: 50px;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 40px;
+  z-index: 1;
+  user-select: none;
+  background-color: #5243f4;
+  color: white;
+  transition: all 0.7s;
+
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+.currency:hover {
+  transform: scale(1.1);
+  background-color: white;
+  color: #5243f4;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.header {
+  margin: 40px 0;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  vertical-align: bottom;
+}
+
+.menu {
+  margin-left: 250px;
+}
+
+.menu__list {
+  list-style-type: none;
+  display: flex;
+  gap: 50px;
+}
+
+.menu__item a {
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: none;
+  cursor: pointer;
+  color: white;
+
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.7s;
+}
+
+.menu__item a:hover {
+  border-bottom: 2px solid white;
+  transition: border-bottom 0.7s;
+}
+
+.main__content {
+  padding-top: 161px;
+  padding-bottom: 200px;
+}
+
+.main__info {
+  max-width: 811px;
+}
+
+.main__title {
+  font-family: "Steppe-ExtraBold", sans-serif;
+  font-size: 90px;
+  line-height: 100%;
+  margin-bottom: 20px;
+}
+
+.main__text {
+  max-width: 697px;
+  font-size: 18px;
+  line-height: 130%;
+  margin-bottom: 40px;
+}
+
+.main__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.products {
+  padding: 100px 0;
+  position: relative;
+}
+
+.products__items {
+  display: grid;
+  grid-template-columns: repeat(3, 384px);
+  /* grid-template-columns: repeat(3, 1fr); */
+  gap: 90px 24px;
+  margin-top: 110px;
+}
+
+.products__item {
+  background-color: white;
+  color: #5d3427;
+}
+
+.product__item-image {
+  height: 202px;
+  text-align: center;
+}
+
+.product__item-image img {
+  height: 272px;
+  position: relative;
+  top: -70px;
+  max-width: 100%;
+}
+
+.product__item-details {
+  padding: 24px;
+}
+
+.product__item-title {
+  font-family: "Steppe-ExtraBold", sans-serif;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.product__item-text {
+  height: 110px;
+  font-size: 14px;
+  line-height: 120%;
+  margin-bottom: 20px;
+}
+
+.product__item-extra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product__item-price {
+  font-family: "Steppe-ExtraBold", sans-serif;
+  color: #5243f4;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.products__item-weight {
+  font-size: 12px;
+}
+
+.love {
+  padding: 60px 0 150px 0;
+}
+
+.love__items {
+  margin-top: 40px;
+  display: flex;
+  gap: 20px;
+}
+
+.love__item {
+  width: 590px;
+  height: 453px;
+}
+
+.love__item-white {
+  background-color: white;
+  padding: 110px 80px;
+  color: #5d3427;
+}
+
+.love__item-title {
+  font-family: "Steppe-ExtraBold", sans-serif;
+  font-size: 24px;
+  line-height: 110%;
+  margin-bottom: 20px;
+}
+
+.love__item-text {
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.order {
+  padding-bottom: 102px;
+  position: relative;
+}
+
+.order .container {
+  position: relative;
+}
+
+.order__block {
+  margin-top: 103px;
+  background-color: rgb(255 255 255 / 30%);
+  backdrop-filter: blur(50px);
+  display: flex;
+}
+
+.order__block-form {
+  margin-left: 200px;
+  width: 387px;
+  padding: 40px 0 44px 0;
+}
+
+.order__block-form-text {
+  font-family: "Steppe-ExtraBold", sans-serif;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.order__block-form-inputs {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.order__block-form-inputs input {
+  border: 1px solid white;
+  border-radius: 60px;
+  margin-bottom: 16px;
+  padding: 24px 22px;
+  font-size: 18px;
+  width: 385px;
+  height: 68px;
+  background: transparent;
+  outline: none;
+  color: white;
+}
+
+::placeholder {
+  color: rgb(255 255 255 / 40%);
+}
+
+.order__block-form-inputs .button.violet-button {
+  width: 100%;
+  height: 71px;
+}
+
+.order__block-image {
+  height: 501px;
+  margin-left: 109px;
+}
+
+.order__block-image img {
+  height: 559px;
+  top: -58px;
+  position: relative;
+}
+
+.order__bg-img {
+  position: absolute;
+  top: 0;
+  right: calc(100% - 810px);
+  z-index: -1;
+}
+
+.footer {
+  padding: 126px 0 50px 0;
+  text-align: center;
+}
+
+.rigths {
+  margin-top: 14px;
+  font-size: 18px;
+  line-height: 130%;
+}
+
+.line-1 {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 960px);
+  z-index: -1;
+}
+
+.line-2 {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: -1;
+}
+
+.line-3 {
+  position: absolute;
+  top: -920px;
+  left: 0;
+  z-index: -1;
+}
