@@ -7,12 +7,12 @@
 
 @font-face {
   font-family: "Steppe-Book";
-  src: url(/assets/fonts/Steppe-Book.ttf);
+  src: url(./assets/fonts/Steppe-Book.ttf);
 }
 
 @font-face {
   font-family: "Steppe-ExtraBold";
-  src: url(/assets/fonts/Steppe-ExtraBold.ttf);
+  src: url(./assets/fonts/Steppe-ExtraBold.ttf);
 }
 
 html,
