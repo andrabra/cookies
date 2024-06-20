@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   currency = '$';
-  productsData = productsData;
+  productsData: any;
 
   form = this.fb.group({
     product: ['', Validators.required],
@@ -19,6 +19,12 @@ export class AppComponent {
   });
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get("https://testologia.ru/cookies").subscribe((data: any) => {
+      this.productsData = data;
+    })
+  }
 
   scrollTo(target: HTMLElement, product?: any) {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
