@@ -72,6 +72,12 @@
       <div class="common-title">
         <h2 class="products__title">Выберите печенье</h2>
       </div>
+      <div class="sugar-free">
+        <div>Все</div>
+        <input type="checkbox" id="switch" (change)="switchSugarFree($event)" />
+        <label for="switch"></label>
+        <div>Без сахара</div>
+      </div>
       <div class="products__items">
         <div class="products__item" *ngFor="let product of productsData">
           <div class="product__item-image">
