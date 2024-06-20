@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { productsData } from './data/productsData';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent {
     phone: ['', Validators.required],
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   scrollTo(target: HTMLElement, product?: any) {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -55,8 +56,17 @@ export class AppComponent {
 
   confirmOrder() {
     if (this.form.valid) {
-      this.form.reset();
-      alert('Заказ оформлен!');
+      this.http
+        .post('https://testologia.ru/cookies-order', this.form.value)
+        .subscribe({
+          next: (response: any) => {
+            alert(response.message);
+            this.form.reset();
+          },
+          error: (response: any) => {
+            alert(response.error.message);
+          },
+        });
     }
   }
 }
