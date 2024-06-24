@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { productsData } from './data/productsData';
 import { HttpClient } from '@angular/common/http';
@@ -12,6 +12,32 @@ export class AppComponent {
   currency = '$';
   productsData: any;
 
+  mainImgStyle: any;
+  orderImgStyle: any;
+
+  loader = true;
+  loaderShowed = true;
+
+  @HostListener('document:mousemove', ['$event'])
+  onMouseMove(e: any) {
+    this.mainImgStyle = {
+      transform:
+        'translate(' +
+        (e.clientX * 0.3) / 8 +
+        'px, ' +
+        (e.clientY * 0.3) / 8 +
+        'px)',
+    };
+    this.orderImgStyle = {
+      transform:
+        'translate(-' +
+        (e.clientX * 0.3) / 8 +
+        'px, -' +
+        (e.clientY * 0.3) / 8 +
+        'px)',
+    };
+  }
+
   form = this.fb.group({
     product: ['', Validators.required],
     name: ['', Validators.required],
@@ -20,10 +46,22 @@ export class AppComponent {
 
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
+
   ngOnInit() {
-    this.http.get("https://testologia.ru/cookies").subscribe((data: any) => {
+
+    setTimeout(() => {
+      this.loaderShowed = false;
+    }, 2000);
+
+    setTimeout(() => {
+
+      this.loader = false;
+
+    }, 3000);
+
+    this.http.get('https://testologia.ru/cookies').subscribe((data: any) => {
       this.productsData = data;
-    })
+    });
   }
 
   scrollTo(target: HTMLElement, product?: any) {
@@ -37,8 +75,12 @@ export class AppComponent {
   }
 
   switchSugarFree(e: any) {
-    this.http.get("https://testologia.ru/cookies" + (e.currentTarget.checked ? '?sugarfree' : ''))
-      .subscribe(data => this.productsData = data);
+    this.http
+      .get(
+        'https://testologia.ru/cookies' +
+          (e.currentTarget.checked ? '?sugarfree' : '')
+      )
+      .subscribe((data) => (this.productsData = data));
   }
 
   changeCurrency() {

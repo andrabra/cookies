@@ -57,6 +57,7 @@
         src="./assets/images/cookie.png"
         alt="Cookie"
         class="main__image"
+        [ngStyle]="mainImgStyle"
         loading="lazy"
       />
     </div>
@@ -97,7 +98,10 @@
                 </div>
                 <div class="products__item-weight">{{ product.weight }}</div>
               </div>
-              <button class="button violet-button" (click)="scrollTo(order, product)">
+              <button
+                class="button violet-button"
+                (click)="scrollTo(order, product)"
+              >
                 Заказать
               </button>
             </div>
@@ -198,6 +202,7 @@
           <img
             src="./assets/images/order.png"
             alt="Order cookie"
+            [ngStyle]="orderImgStyle"
             loading="lazy"
           />
         </div>
@@ -211,3 +216,13 @@
     <div class="rigths">Все права защищены</div>
   </footer>
 </main>
+
+<div class="loader" [class]="{ 'showed': loaderShowed }" *ngIf="loader">
+  <lottie-player
+    src="./assets/cookie.json"
+    background="transparent"
+    speed="1.5"
+    loop
+    autoplay
+  ></lottie-player>
+</div>
