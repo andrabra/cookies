@@ -51,13 +51,13 @@ export class AppComponent {
 
     setTimeout(() => {
       this.loaderShowed = false;
-    }, 2000);
+    }, 2);
 
     setTimeout(() => {
 
       this.loader = false;
 
-    }, 3000);
+    }, 3);
 
     this.http.get('https://testologia.ru/cookies').subscribe((data: any) => {
       this.productsData = data;

@@ -1,5 +1,6 @@
 .main {
-  overflow-x: hidden;
+  overflow: hidden;
+  position: relative;
 }
 
 .currency {
@@ -396,4 +397,167 @@
   display: block;
   width: 300px;
   height: 300px;
+}
+
+@media screen and (max-width: 1225px) {
+  .container {
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+
+  .header .container {
+      justify-content: space-between;
+      max-width: 600px;
+      margin: 0;
+  }
+
+  .menu {
+      margin-left: 0;
+  }
+
+  .menu__list {
+      gap: 20px;
+  }
+
+  .main__image {
+      max-width: 800px;
+      top: 200px;
+  }
+
+  .main__text {
+      max-width: 500px;
+  }
+
+  .products__items {
+      grid-template-columns: repeat(auto-fill, minmax(290px, 384px));
+      justify-content: center;
+  }
+
+  .love__items {
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .love__item {
+      height: auto;
+      text-align: center;
+  }
+
+  .love__item img {
+      max-width: 100%;
+  }
+
+  .order__block {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 426px;
+      width: auto;
+      padding: 20px;
+  }
+
+  .order__block-form {
+      margin-left: 0;
+      max-width: 100%;
+      padding: 0;
+  }
+
+  .order__bg-img {
+      right: 0;
+  }
+
+  .order__block-form-text {
+      text-align: center;
+  }
+
+  .order__block-form-inputs input {
+      max-width: 100%;
+      width: auto;
+  }
+
+  .order__block-image {
+      display: none;
+  }
+
+  .order__block-form-inputs .button.violet-button {
+      width: 100%;
+      margin: 0 auto;
+  }
+
+  .currency {
+      right: 40px;
+      bottom: 40px;
+
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main__image {
+      max-width: 500px;
+      top: 300px;
+  }
+
+  .main__text {
+      max-width: 400px;
+  }
+
+  .main__title {
+      font-size: 70px;
+  }
+}
+
+@media screen and (max-width: 570px) {
+  .header .container {
+      flex-direction: column;
+  }
+
+  .menu {
+      margin-top: 30px;
+  }
+
+  .menu__item a {
+      font-size: 14px;
+  }
+
+  .main__content {
+      padding-top: 20px;
+      padding-bottom: 50px;
+  }
+
+  .main__title {
+      font-size: 55px;
+  }
+
+  .main__image {
+      max-width: 400px;
+      top: 500px;
+  }
+
+  .products__title{
+    font-size: 46px;
+  }
+
+  .common-title {
+      font-size: 46px;
+  }
+
+  .love__item-white {
+      padding: 30px;
+  }
+
+  .product__item-text {
+      height: auto;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  .main__image {
+      max-width: 300px;
+      top: 600px;
+  }
+  .product__item-details {
+      padding: 15px;
+  }
+  .button {
+      width: 150px;
+  }
 }
